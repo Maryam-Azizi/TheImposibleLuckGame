@@ -110,6 +110,7 @@ function questionRotation(){
     document.getElementById('next').addEventListener("click", questionCheck);
 }
 
+//! need ot add a end result, 2nd atempt, and return to start funcitonality 
 
 function questionCheck(){
     var rand = Math.random()*4;
