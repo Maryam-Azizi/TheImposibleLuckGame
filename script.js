@@ -23,7 +23,7 @@ class Questons{
         something1.innerHTML += "<h1 class= 'words'>" + this.queston + "</h1> "
         var something = document.getElementById('ansersDiplayBtn');
         something.innerHTML = "";
-        something.innerHTML += `<button  type= 'submit' class ='questions' vlaue = '1' >${this.answer1}</button> <button  type= 'submit' class ='questions'  vlaue = '2' >${this.answer2}</button> <button type= 'submit' class ='questions'  vlaue = '3'>${this.answer3}</button> <button  type= 'submit' class ='questions'  vlaue = '4'>${this.answer4}</button>`
+        something.innerHTML += `${this.answer1} ${this.answer2} ${this.answer3} ${this.answer4}`
 
     }
 
@@ -32,26 +32,86 @@ class Questons{
 
 // TODO: currently colledting questions from snapchat. 
 // here im making quetions fro my class
-var Q1 = new Questons("What Grade should I get?","100%","200%","300%","4000%");
-var Q2 = new Questons("what is the color of the sky?","Red","Magenta","Pink","Blue");
-var Q3 = new Questons("What is a cooler mame?","Jim","Tim","Tina","Jane");
-var Q4 = new Questons("Where is Your cat?","What Cat?","Home","Vet","Mittens?");
-var Q5 = new Questons("Who are you?","THE PRESIDENT","ME, DUH","NOBODY","SOMEBODY");
-var Q6 = new Questons("What fish would you be?","Shark!","Zebra Fish","Dalphine","CatFish");
-var Q7 = new Questons("What's a sekeletons Favorite snack?","SpareRibs","Ribi","bonless Ribs","Jawbreakers");
-var Q8 = new Questons("Where IS SHREK?","MY SWAMP","His SWAMP","OUR SWAMP","6ft under");
-var Q9 = new Questons("why is 6 afraid of 7?","789","7 ate 9","7 eight 9","hes not!");
-var Q10 = new Questons("whats is the meaning of life?","CODE","42","Games","Nothing");
-var Q11 = new Questons("Help Ive fallen and i cant get up?","LIFEALERT","lifealert","LIfeAlert","ALertLIFE");
-var Q12 = new Questons("what is the best season?","PEPPER","CARJUN ","SUMMER","DEER");
-var Q13 = new Questons("How do you make a pirate ferrious?","Steal His Booty","take away the p","call him polly","arrest him");
-var Q14 = new Questons("what do among us players eat?","Impasta","O2","Reactor","Comms");
-var Q15 = new Questons("What's the difference between a guitar and a fish?","Wood?","fish breaths","you cant tuna fish","fish are animals");
-var Q16 = new Questons("What do you get from a pampered cow?","Spoiled Milk","Eggs","Nothing","Chocolet Milk");
-var Q17 = new Questons("What do you call an elephant that doesn't matter?","An irrelephant","Me","earelephant","this question");
-var Q18 = new Questons("What do lawyers wear to court?","Birthday Suite","Lawsuite","Zoot Suite","Swimsuite");
-var Q19 = new Questons("What is heavy forward but not backward?","trick question","ton","heavy","Up Hill");
-var Q20 = new Questons("What do you call a gangsta snowman?","Froze-T","Ice-T","Silly, snowman cant be gangsta","Frosty");
+var Q1 = new Questons("What Grade should I get?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >100%</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>200%</button>",
+    "<button class ='questions' value ='3' id='an3' >300%</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>4000%</button>");
+var Q2 = new Questons("what is the color of the sky?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Red</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Magenta</button>",
+    "<button class ='questions' value ='3' id='an3' >Pink</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Blue</button>");
+var Q3 = new Questons("What is a cooler mame?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Jim</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Tim</button>",
+    "<button class ='questions' value ='3' id='an3' >Tina</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Jane</button>");
+var Q4 = new Questons("Where is Your cat?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >What Cat?</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Home</button>",
+    "<button class ='questions' value ='3' id='an3' >Vet</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Mittens?</button>");
+var Q5 = new Questons("Who are you?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >THE PRESIDENT</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>ME, DUH</button>",
+    "<button class ='questions' value ='3' id='an3' >NOBODY</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>SOMEBODY</button>");
+var Q6 = new Questons("What fish would you be?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Shark!</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Zebra Fish</button>",
+    "<button class ='questions' value ='3' id='an3' >Dalphine</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>CatFish</button>");
+var Q7 = new Questons("What's a sekeletons Favorite snack?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >SpareRibs</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Ribeye</button>",
+    "<button class ='questions' value ='3' id='an3' >bonless Ribs</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Jawbreakers</button>");
+var Q8 = new Questons("Where IS SHREK?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >MY SWAMP</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>His SWAMP</button>",
+    "<button class ='questions' value ='3' id='an3' >OUR SWAMP</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>6ft under</button>");
+var Q9 = new Questons("why is 6 afraid of 7?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >789</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>7 ate 9</button>",
+    "<button class ='questions' value ='3' id='an3' >7 eight 9</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>hes not!</button>");
+var Q10 = new Questons("whats is the meaning of life?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >CODE</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>42</button>",
+    "<button class ='questions' value ='3' id='an3' >Games</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Nothing</button>");
+var Q11 = new Questons("Help Ive fallen and i cant get up?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >LIFEALERT</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>lifealert</button>",
+    "<button class ='questions' value ='3' id='an3' >LIfeAlert</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>ALertLIFE</button>");
+var Q12 = new Questons("what is the best season?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >PEPPER</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>CARJUN</button> ",
+    "<button class ='questions' value ='3' id='an3' >SUMMER</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>DEER</button>");
+var Q13 = new Questons("How do you make a pirate ferrious?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Steal His Booty</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>take away the p</button>",
+    "<button class ='questions' value ='3' id='an3' >call him polly</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>arrest him</button>");
+var Q14 = new Questons("what do among us players eat?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Impasta</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>O2</button>",
+    "<button class ='questions' value ='3' id='an3' >Reactor</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Comms</button>");
+var Q15 = new Questons("What's the difference between a guitar and a fish?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Wood?</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>fish breaths</button>",
+    "<button class ='questions' value ='3' id='an3' >you cant tuna fish</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>fish are animals</button>");
+var Q20 = new Questons("What do you call a gangsta snowman?",
+    "<button  type= 'submit' class ='questions' value = '1' id='an1' >Froze-T</button>",
+    "<button  type= 'submit' class ='questions'  value = '2' id='an2'>Ice-T</button>",
+    "<button class ='questions' value ='3' id='an3' >Silly, snowman cant be gangsta</button>",
+    "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Frosty</button>");
  
 
 // here im turning theminto an array 
@@ -71,12 +131,9 @@ questionsAry.push(Q12);
 questionsAry.push(Q13);
 questionsAry.push(Q14);
 questionsAry.push(Q15);
-questionsAry.push(Q16);
-questionsAry.push(Q17);
-questionsAry.push(Q18);
-questionsAry.push(Q19);
 questionsAry.push(Q20);
 
+console.log(Q1.answer1);
 //calling everything to the load. 
 window.addEventListener('load', intializePage);
   
@@ -94,6 +151,8 @@ function start(){
     document.getElementById('start').addEventListener("click", questionRotation);
 }
 
+var rand = Math.floor((Math.random()*4)+1);
+
 
 var i = 0;
 function questionRotation(){
@@ -107,29 +166,49 @@ function questionRotation(){
     i++;
     runs++;
     }
+
+    var valueOfClick1 = document.getElementById('an1').addEventListener("click", clickingValues);
+    var valueOfClick2 = document.getElementById('an2').addEventListener("click", clickingValues);
+    var valueOfClick3 = document.getElementById('an3').addEventListener("click", clickingValues);
+    var valueOfClick4 = document.getElementById('an4').addEventListener("click", clickingValues);
+
+    // valueOfClick1 = 1;
+    // valueOfClick2 = 2;
+    // valueOfClick3 = 3;
+    // valueOfClick4 = 4;
+    
+    
+    console.log(valueOfClick4);
+    console.log(valueOfClick3);
+    console.log(valueOfClick2);
+    console.log(valueOfClick1);
+    console.log("random: " + rand);
+     if(rand == valueOfClick1 ){
+        document.getElementById('next').addEventListener("click", questionCheck);
+     }else if (rand < valueOfClick2 ){
+        document.getElementById('next').addEventListener("click", questionCheck);
+     }else if (rand < valueOfClick3 ){
+        document.getElementById('next').addEventListener("click", questionCheck);
+     }else if (rand == valueOfClick4 ){
+        document.getElementById('next').addEventListener("click", questionCheck);
+     }else{
+        console.log("wrong");
+     }
+
     document.getElementById('next').addEventListener("click", questionCheck);
 }
 
 //! need ot add a end result, 2nd atempt, and return to start funcitonality 
 
+function clickingValues(e){
+    console.log(e.target);
+        console.log(e.target.value);
+        value = e.target.value;
+
+}
+
 function questionCheck(){
-    var rand = Math.random()*4;
-    console.log(rand);
-    // var valueOfClick = document.getElementsByClassName('questions').addEventListener("click", function(e){
-    //     console.log(e.target.value);
-    // });
-     
-    
-    // for (var i = 0; i < vars.length; i++) {
-    //     var pair = vars[i].split("=");
-    //     console.log(pair[0] + ": " + pair[1]);
-    //   }
-    //console.log(valueOfClick);
-    // if(rand = valueOfClick){
-    //     // YAY 
-    // }else{
-    //     // fun a fuction that is the beginging
-    // }
+    console.log("random: " + rand);
     document.getElementById('next').addEventListener("click", questionRotation)
 }
 
