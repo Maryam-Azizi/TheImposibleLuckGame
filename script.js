@@ -23,7 +23,7 @@ class Questons{
         something1.innerHTML += "<h1 class= 'words'>" + this.queston + "</h1> "
         var something = document.getElementById('ansersDiplayBtn');
         something.innerHTML = "";
-        something.innerHTML += `<button class ='questions' vlaue = '1' >${this.answer1}</button> <button class ='questions'  vlaue = '2' >${this.answer2}</button> <button class ='questions'  vlaue = '3'>${this.answer3}</button> <button class ='questions'  vlaue = '4'>${this.answer4}</button>`
+        something.innerHTML += `<button  type= 'submit' class ='questions' vlaue = '1' >${this.answer1}</button> <button  type= 'submit' class ='questions'  vlaue = '2' >${this.answer2}</button> <button type= 'submit' class ='questions'  vlaue = '3'>${this.answer3}</button> <button  type= 'submit' class ='questions'  vlaue = '4'>${this.answer4}</button>`
 
     }
 
@@ -47,21 +47,18 @@ var Q12 = new Questons("what is the best season?","PEPPER","CARJUN ","SUMMER","D
 var Q13 = new Questons("How do you make a pirate ferrious?","Steal His Booty","take away the p","call him polly","arrest him");
 var Q14 = new Questons("what do among us players eat?","Impasta","O2","Reactor","Comms");
 var Q15 = new Questons("What's the difference between a guitar and a fish?","Wood?","fish breaths","you cant tuna fish","fish are animals");
-var Q16 = new Questons("q?","1","2","3","4");
-var Q17 = new Questons("q?","1","2","3","4");
-var Q18 = new Questons("q?","1","2","3","4");
-var Q19 = new Questons("q?","1","2","3","4");
-var Q20 = new Questons("q?","1","2","3","4");
+var Q16 = new Questons("What do you get from a pampered cow?","Spoiled Milk","Eggs","Nothing","Chocolet Milk");
+var Q17 = new Questons("What do you call an elephant that doesn't matter?","An irrelephant","Me","earelephant","this question");
+var Q18 = new Questons("What do lawyers wear to court?","Birthday Suite","Lawsuite","Zoot Suite","Swimsuite");
+var Q19 = new Questons("What is heavy forward but not backward?","trick question","ton","heavy","Up Hill");
+var Q20 = new Questons("What do you call a gangsta snowman?","Froze-T","Ice-T","Silly, snowman cant be gangsta","Frosty");
  
 
 // here im turning theminto an array 
 var questionsAry = [];
 questionsAry.push(Q1);
-console.log(questionsAry[0]);
 questionsAry.push(Q2);
-console.log(questionsAry[1]);
 questionsAry.push(Q3);
-console.log(questionsAry[2]);
 questionsAry.push(Q4);
 questionsAry.push(Q5);
 questionsAry.push(Q6);
@@ -80,7 +77,7 @@ questionsAry.push(Q18);
 questionsAry.push(Q19);
 questionsAry.push(Q20);
 
-
+//calling everything to the load. 
 window.addEventListener('load', intializePage);
   
 function intializePage() {
@@ -109,21 +106,29 @@ function questionRotation(){
     questionsAry[i].updateQuestonArea();
     i++;
     runs++;
-}
-document.getElementById('next').addEventListener("click", questionCheck);
+    }
+    document.getElementById('next').addEventListener("click", questionCheck);
 }
 
 
 function questionCheck(){
     var rand = Math.random()*4;
     console.log(rand);
-    var valueOfClick = document.getElementsByClassName('questions').value
-    console.log(valueOfClick)
-    if(rand = valueOfClick){
-        // YAY 
-    }else{
-        // fun a fuction that is the beginging
-    }
+    // var valueOfClick = document.getElementsByClassName('questions').addEventListener("click", function(e){
+    //     console.log(e.target.value);
+    // });
+     
+    
+    // for (var i = 0; i < vars.length; i++) {
+    //     var pair = vars[i].split("=");
+    //     console.log(pair[0] + ": " + pair[1]);
+    //   }
+    //console.log(valueOfClick);
+    // if(rand = valueOfClick){
+    //     // YAY 
+    // }else{
+    //     // fun a fuction that is the beginging
+    // }
     document.getElementById('next').addEventListener("click", questionRotation)
 }
 
