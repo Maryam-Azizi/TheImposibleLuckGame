@@ -114,7 +114,7 @@ var Q20 = new Questons("What do you call a gangsta snowman?",
     "<button  type= 'submit' class ='questions'  value = '4' id='an4'>Frosty</button>");
  
 
-// here im turning theminto an array 
+// here im turning them into an array 
 var questionsAry = [];
 questionsAry.push(Q1);
 questionsAry.push(Q2);
@@ -133,7 +133,7 @@ questionsAry.push(Q14);
 questionsAry.push(Q15);
 questionsAry.push(Q20);
 
-console.log(Q1.answer1);
+
 //calling everything to the load. 
 window.addEventListener('load', intializePage);
   
@@ -155,6 +155,11 @@ var rand = Math.floor((Math.random()*4)+1);
 
 
 var i = 0;
+
+/* 
+here Im truning the start button into the next button, and call the id of all buttons 
+on click to then send their value of them though an if satement to determine if they are the right answer
+*/
 function questionRotation(){
     var startBtn = document.getElementById('movementHousing');
     startBtn.innerHTML = "<button class ='navigationButtons' vlaue = 'next' id = 'next'> Check </button>"
@@ -167,6 +172,7 @@ function questionRotation(){
     runs++;
     }
 
+    //var clickingValue1 = document.getElementById('an1').value;
     var valueOfClick1 = document.getElementById('an1').addEventListener("click", clickingValues);
     var valueOfClick2 = document.getElementById('an2').addEventListener("click", clickingValues);
     var valueOfClick3 = document.getElementById('an3').addEventListener("click", clickingValues);
@@ -177,37 +183,49 @@ function questionRotation(){
     // valueOfClick3 = 3;
     // valueOfClick4 = 4;
     
-    
-    console.log(valueOfClick4);
-    console.log(valueOfClick3);
-    console.log(valueOfClick2);
-    console.log(valueOfClick1);
+
+    // for(i=0; i <= 2; i++){
+
     console.log("random: " + rand);
-     if(rand == valueOfClick1 ){
-        document.getElementById('next').addEventListener("click", questionCheck);
-     }else if (rand < valueOfClick2 ){
-        document.getElementById('next').addEventListener("click", questionCheck);
-     }else if (rand < valueOfClick3 ){
-        document.getElementById('next').addEventListener("click", questionCheck);
-     }else if (rand == valueOfClick4 ){
-        document.getElementById('next').addEventListener("click", questionCheck);
+     if(rand === valueOfClick1 ){
+        document.getElementById('next').addEventListener("click", questionNextBtn);
+        rand;
+     }else if (rand === valueOfClick2 ){
+        document.getElementById('next').addEventListener("click", questionNextBtn);
+        rand;
+     }else if (rand === valueOfClick3 ){
+        document.getElementById('next').addEventListener("click", questionNextBtn);
+        rand;
+     }else if (rand === valueOfClick4 ){
+        document.getElementById('next').addEventListener("click", questionNextBtn);
+        rand;
      }else{
         console.log("wrong");
      }
 
-    document.getElementById('next').addEventListener("click", questionCheck);
+    //document.getElementById('next').addEventListener("click", questionNextBtn);
+    console.log(valueOfClick1);
+    console.log(valueOfClick3);
+    console.log(valueOfClick2);
+    console.log(valueOfClick1);
+    //}
+    
 }
 
 //! need ot add a end result, 2nd atempt, and return to start funcitonality 
 
+//this functoin is pulling the vales of the target witch are the buttons clicked.
 function clickingValues(e){
+
     console.log(e.target);
         console.log(e.target.value);
-        value = e.target.value;
+       var valueReturn = e.target.value;
+       console.log("Target Var: " + valueReturn);
+        return valueReturn;
 
 }
-
-function questionCheck(){
+// this send the console the random thats generated, and adds an listener to the next button to move on to the next quetion roation
+function questionNextBtn(){
     console.log("random: " + rand);
     document.getElementById('next').addEventListener("click", questionRotation)
 }
