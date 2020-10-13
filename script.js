@@ -3,7 +3,9 @@ Author: Hannah Givens
 Date Started: 10/08/2020
 Project: An Impossible Luck Quize!
 
-Date Modified: 10/08/20
+Date Modified: 10/11/20
+Date Modified: 10/12/20
+Date Modified: 10/13/20
 */
 // * This is where I hold my made Object/class
 class Questons{
@@ -15,22 +17,18 @@ class Questons{
         this.answer4 = a4;
     }
 
-    //! this needs fixed to do something different. 
     updateQuestonArea(){
-        // TODO: need to rename something
-        var something1 = document.getElementById('questionsDisplay');
-        something1.innerHTML = "";
-        something1.innerHTML += "<h1 class= 'words'>" + this.queston + "</h1> "
-        var something = document.getElementById('ansersDiplayBtn');
-        something.innerHTML = "";
-        something.innerHTML += `${this.answer1} ${this.answer2} ${this.answer3} ${this.answer4}`
+        var grabDiv = document.getElementById('questionsDisplay');
+        grabDiv.innerHTML = "";
+        grabDiv.innerHTML += "<h1 class= 'words'>" + this.queston + "</h1> "
+        var grabDiv2 = document.getElementById('ansersDiplayBtn');
+        grabDiv2.innerHTML = "";
+        grabDiv2.innerHTML += `${this.answer1} ${this.answer2} ${this.answer3} ${this.answer4}`
 
     }
 
 }
 
-
-// TODO: currently colledting questions from snapchat. 
 // here im making quetions fro my class
 var Q1 = new Questons("What Grade should I get?",
     "<button  type= 'submit' class ='questions' value = '1' id='an1' >100%</button>",
@@ -140,7 +138,7 @@ window.addEventListener('load', intializePage);
 function intializePage() {
     start();
 }
-
+var i = 0;
 //* START FUNCTION!!!!
 function start(){
     var startMessage = document.getElementById('questionsDisplay');
@@ -148,111 +146,106 @@ function start(){
     startMessage.innerHTML += "<h1 class= 'words'> Welcom to the IMPOSIBLE LUCK QUIZ! </h1> "
     var startBtn = document.getElementById('movementHousing');
     startBtn.innerHTML = "<button class ='navigationButtons' vlaue = 'start' id = 'start'> START HERE </button>"
-    document.getElementById('start').addEventListener("click", questionRotation);
+    document.getElementById('start').addEventListener("click", questionSwapping);
+    var emptyAnswers = document.getElementById('ansersDiplayBtn');
+    emptyAnswers.style.display= "none";
+    i = 0;
 }
 
-var rand = Math.floor((Math.random()*4)+1);
+
+ var randomGen = Math.floor((Math.random()*4)+1);
 
 
-var i = 0;
+i = 0;
 
 /* 
 here Im truning the start button into the next button, and call the id of all buttons 
 on click to then send their value of them though an if satement to determine if they are the right answer
 */
-function questionRotation(){
+function questionSwapping(){
     var startBtn = document.getElementById('movementHousing');
-    startBtn.innerHTML = "<button class ='navigationButtons' vlaue = 'next' id = 'next'> Check </button>"
-    
-    var runs = 0;
-    while( runs < 1){
-    console.log(questionsAry[i]);
-    questionsAry[i].updateQuestonArea();
-    i++;
-    runs++;
-    }
-
-    //var clickingValue1 = document.getElementById('an1').value;
-    var valueOfClick1 = document.getElementById('an1').addEventListener("click", clickingValues);
-    var valueOfClick2 = document.getElementById('an2').addEventListener("click", clickingValues);
-    var valueOfClick3 = document.getElementById('an3').addEventListener("click", clickingValues);
-    var valueOfClick4 = document.getElementById('an4').addEventListener("click", clickingValues);
-
-    // valueOfClick1 = 1;
-    // valueOfClick2 = 2;
-    // valueOfClick3 = 3;
-    // valueOfClick4 = 4;
-    
-
-    // for(i=0; i <= 2; i++){
-
-    console.log("random: " + rand);
-     if(rand === valueOfClick1 ){
-        document.getElementById('next').addEventListener("click", questionNextBtn);
-        rand;
-     }else if (rand === valueOfClick2 ){
-        document.getElementById('next').addEventListener("click", questionNextBtn);
-        rand;
-     }else if (rand === valueOfClick3 ){
-        document.getElementById('next').addEventListener("click", questionNextBtn);
-        rand;
-     }else if (rand === valueOfClick4 ){
-        document.getElementById('next').addEventListener("click", questionNextBtn);
-        rand;
-     }else{
-        console.log("wrong");
-     }
-
-    //document.getElementById('next').addEventListener("click", questionNextBtn);
-    console.log(valueOfClick1);
-    console.log(valueOfClick3);
-    console.log(valueOfClick2);
-    console.log(valueOfClick1);
-    //}
-    
+    startBtn.innerHTML = "<button class ='navigationButtons' vlaue = 'next' id = 'next'> Submit </button>"
+    questionRotation();
 }
 
-//! need ot add a end result, 2nd atempt, and return to start funcitonality 
+function questionRotation(){
+    document.getElementById('ansersDiplayBtn').style.display= "inline";
+    var runs = 0;
+    var count = 0;
+
+    while(count <= questionsAry.length ){
+        if(count <= questionsAry.length){
+        document.getElementById('ansersDiplayBtn').style.display= "inline";
+        while( runs < 1){
+            console.log(questionsAry[i]);
+            questionsAry[i].updateQuestonArea();
+            i++;
+            runs++;
+            randomGen;
+            }
+        count++;
+
+        var valueOfClick1 = document.getElementById('an1');
+        valueOfClick1.addEventListener("click", clickingValues);
+        var valueOfClick2 = document.getElementById('an2');
+        valueOfClick2.addEventListener("click", clickingValues);
+        var valueOfClick3 = document.getElementById('an3');
+        valueOfClick3.addEventListener("click", clickingValues);
+        var valueOfClick4 = document.getElementById('an4');
+        valueOfClick4.addEventListener("click", clickingValues);
+    
+        console.log("random: " + randomGen);
+        console.log(valueOfClick1);
+        console.log(valueOfClick3);
+        console.log(valueOfClick2);
+        console.log(valueOfClick1);
+
+        }else{
+            
+            var endMessage = document.getElementById('questionsDisplay');
+            endMessage.innerHTML = "";
+            endMessage.innerHTML += "<h1 class= 'words'> YOU DID TI! YOU BEAT THE GAME! </h1> "
+            var again = document.getElementById('movementHousing');
+            again.innerHTML = "<button class ='navigationButtons' vlaue = 'again' id = 'again'> AGAIN! </button>"
+            document.getElementById('again').addEventListener("click", start);
+            randomGen = Math.floor((Math.random()*4)+1);
+            var emptyAnswers = document.getElementById('ansersDiplayBtn');
+            emptyAnswers.style.display= "none";
+            
+        }
+    }
+
+    
+}
 
 //this functoin is pulling the vales of the target witch are the buttons clicked.
 function clickingValues(e){
 
     console.log(e.target);
-        console.log(e.target.value);
-       var valueReturn = e.target.value;
-       console.log("Target Var: " + valueReturn);
-        return valueReturn;
+    console.log(e.target.value);
+    validAnswer( e.target);
+
 
 }
+function validAnswer(answer){
+    var val = answer.value;
+    if(randomGen == val){
+        alert("YAY! You got it!");
+        document.getElementById('next').addEventListener("click", questionNextBtn);
+        randomGen = Math.floor((Math.random()*4)+1);
+    }else{
+        alert("THIS IS NOT THE ANSWER, you must go back to start.");
+        document.getElementById('next').addEventListener("click", start);
+        randomGen = Math.floor((Math.random()*4)+1);
+    }
+
+    console.log(answer);
+    
+}
+
 // this send the console the random thats generated, and adds an listener to the next button to move on to the next quetion roation
 function questionNextBtn(){
-    console.log("random: " + rand);
+    console.log("random: " + randomGen);
     document.getElementById('next').addEventListener("click", questionRotation)
 }
-
-
-// TODO: this will randomiz what array value will be the right one because ther are no real right answers just luck 
-
-// ? this will generate what is the right answer. THis if need to be nested in the while loop that determins the quetions
-
-// if(rand = ckickedAnswer){
-//     //when right: change btn color and display next btn 
-// }else{
-//     // fun a fuction that is the beginging
-// }
-
-
-
-// if(rand >=0 && rand <1){
-//     //make this.answer1 the answer
-
-// }esle if(rand >=1 && rand <2){
-//     //make this.answer2 the answer
-// }esle if(rand >=1 && rand <2){
-//     //make this.answer3 the answer
-// }else{
-//     //make this.answer4
-// }
-
-
 

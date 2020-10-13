@@ -8,6 +8,12 @@
 body{
     background-color: black;
 }
+footer{
+    font-size: 100%;
+    font-family: 'Fredericka the Great', cursive;
+    color: cornsilk;
+    text-align: center;
+}
 
 .questionsDisplay{
     background-color: burlywood;
